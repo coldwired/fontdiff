@@ -28,7 +28,7 @@ image = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 cv2.imwrite('output1.png',image)
  
 
-output = imutils.resize(image, width=400)
+output = imutils.resize(image, width=150)
  
 # pre-process the image for classification
 image = cv2.resize(image, (150, 150))

@@ -36,7 +36,7 @@ args = vars(ap.parse_args())
 
 # initialize the number of epochs to train for, initial learning rate,
 # batch size, and image dimensions
-EPOCHS = 1#150
+EPOCHS = 20#150
 INIT_LR = 1e-3
 BS = 42
 IMAGE_DIMS = (150, 150, 1)
@@ -85,7 +85,7 @@ labels = mlb.fit_transform(labels)
 for (i, label) in enumerate(mlb.classes_):
 	print("{}. {}".format(i + 1, label))
 
-early_stopping = EarlyStopping(monitor='val_loss', patience=2, verbose=1, mode='auto')
+early_stopping = EarlyStopping(monitor='val_loss', min_delta=0.05, verbose=1, mode='auto')
 callbacks = [early_stopping]
 
 # partition the data into training and testing splits using 80% of
